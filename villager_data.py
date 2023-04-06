@@ -54,9 +54,32 @@ def all_names_by_hobby(filename):
         - list[list[str]]: a list of lists containing names
     """
 
-    # TODO: replace this with your code
+    fitness = []
+    nature = []
+    education = []
+    music = []
+    fashion = []
+    play = []
 
-    return []
+    file_data = open(filename)
+    for line in file_data:
+        each_species = line.split("|")
+        if (each_species[3] == "Fitness"):
+            fitness.append(each_species[0])
+        if (each_species[3] == "Nature"):
+            nature.append(each_species[0])
+        if (each_species[3] == "Education"):
+            education.append(each_species[0])
+        if (each_species[3] == "Music"):
+            music.append(each_species[0])
+        if (each_species[3] == "Fashion"):
+            fashion.append(each_species[0])
+        if (each_species[3] == "Play"):
+            play.append(each_species[0])
+
+    return [fitness, nature, education, music, fashion, play]
+
+all_names_by_hobby("villagers.csv")
 
 
 def all_data(filename):
