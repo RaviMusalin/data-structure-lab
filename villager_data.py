@@ -32,7 +32,14 @@ def get_villagers_by_species(filename, search_string="All"):
 
     villagers = []
 
-    # TODO: replace this with your code
+    file_data = open(filename)
+    for line in file_data:
+        each_species = line.split("|")
+        if(search_string == "All"): 
+            villagers.append(each_species[0])
+        else:
+            if search_string == each_species[1]:
+                villagers.append(each_species[0])
 
     return sorted(villagers)
 
