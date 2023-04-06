@@ -137,7 +137,21 @@ def find_likeminded_villagers(filename, villager_name):
         >>> find_likeminded_villagers('villagers.csv', 'Wendy')
         {'Bella', ..., 'Carmen'}
     """
+    samepersonality = set()
+    file_data = open(filename)
+    target = None
+    for line in file_data:
+        each_species = line.split("|")
+        if each_species[0] == villager_name:
+            target = each_species[2]
+            break
 
-    # TODO: replace this with your code
+    if target:
+        for line in file_data:
+            each_species = line.split("|")
+            if each_species[2] == target:
+                samepersonality.add(each_species[0])
+    return samepersonality
+   
 
-all_species("villagers.csv")
+find_likeminded_villagers("villagers.csv", "Cyrano")
