@@ -115,8 +115,12 @@ def find_motto(filename, villager_name):
     Return:
         - str: the villager's motto or None
     """
-
-    # TODO: replace this with your code
+    file_data = open(filename)    
+    for line in file_data:
+        each_species = line.split("|")
+        if each_species[0] == villager_name:
+            return each_species[4]
+    return None
 
 
 def find_likeminded_villagers(filename, villager_name):
